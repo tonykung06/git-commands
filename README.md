@@ -73,4 +73,4 @@ go test -v
 - `git config --global core.exclude ~/.gitignore_global`
 
 To remove unstaged files,
-- git clean -df && git checkout -- .
+- `git clean -df && git checkout -- .`
