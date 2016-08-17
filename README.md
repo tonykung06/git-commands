@@ -71,3 +71,6 @@ go test -v
 - `git rm --cached` to untrack files by looking at the latest .gitignore config
 - `cd ~ && touch .gitignore_global && subl .gitignore_global`
 - `git config --global core.exclude ~/.gitignore_global`
+
+To remove unstaged files,
+- git clean -df && git checkout -- .
