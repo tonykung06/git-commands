@@ -74,3 +74,6 @@ go test -v
 
 To remove unstaged files,
 - `git clean -df && git checkout -- .`
+
+To force push to feature branch, never do this on master branch unless you know what you are doing,
+- `git push --force origin <feature branch>`
