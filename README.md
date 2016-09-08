@@ -9,7 +9,7 @@
 - `git commit -m "<msg>"`
 - `git push`
 - `git pull` equals `git fetch && git merge`
-- `git branch`
+- `git branch -a`
 - `git checkout -b <branch name>` equals `git branch <branch name> && git checkout <branch name>`
 - `git merge <from branch>`
 - `git branch -d <branch name>`
