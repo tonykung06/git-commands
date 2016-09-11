@@ -3,16 +3,26 @@
 - `rm -rf .git/`
 - `git remote add <name> <link>`
 - `git remote -v`
-- `git clone <repo url>`
+- `git remote show origin`
+- `git remote rm <remote name>`
+- `git clone <repo url> [<local dir name>]`
 - `git status`
 - `git add -A`
+- `git rm <file>`
+- `git add "*.txt"`, Add all txt files in the whole project
+- `git reset HEAD <file>`, to unstage the file, dont do this after push
 - `git commit -m "<msg>"`
-- `git push`
-- `git pull` equals `git fetch && git merge`
+- `git reset --soft HEAD^`, to undo a local commit and reset into staging
+- `git add <file> && git commit --amend -m <msg>`, to add file to the previous commit, dont do this after push
+- `git push <remote name> <local branch to push>[:<remote branch name>]`
+- `git pull` equals `git fetch && git merge`, and a new merge commit is created
+- `git branch <new branch name>`, to create a new branch locally
 - `git branch -a`
 - `git checkout -b <branch name>` equals `git branch <branch name> && git checkout <branch name>`
 - `git merge <from branch>`
+- `git push <remote name> :<branch name>`, to remove a remote branch
 - `git branch -d <branch name>`
+- `git remote prune origin`, To clean up deleted remote branches
 - to stash untracked files --> `git add -A && git stash`
 - `git stash pop` equals `git stash apply && git stash drop`
 ` `git log`
@@ -38,6 +48,7 @@
 - `git log master..cool-feature`
 - `git log -p -- file1.js`
 - `git diff` to diff last commit and cwd
+- `git diff --staged` to diff last commit and staging files
 - `git diff --cached` to diff staging area and last commit
 - `git diff HEAD` to diff all uncommited changes and last commit
 - `git diff --stat`
@@ -45,8 +56,8 @@
 - `git fetch && git diff origin/master file1.js`
 - `git blame file1.js`
 - `git log -p -- file1.js`
+- `git tag`, to show all tags
 - `git tag -a v1.0.0 -m "new feature added"`
-- `git tag`
 - `git push --tags`
 - `git rebase -i origin/master` to allow us to squash commits to a single commit
 - `git push -f origin/feature-1`, after squashing commits, force push
@@ -74,6 +85,7 @@ go test -v
 
 To remove unstaged files,
 - `git clean -df && git checkout -- .`
+- `git checkout -- <file>`
 
 To force push to feature branch, never do this on master branch unless you know what you are doing,
 - `git push --force origin <feature branch>`
