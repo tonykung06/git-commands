@@ -24,9 +24,17 @@
 - `git branch -d <branch name>`
 - `git remote prune origin`, To clean up deleted remote branches
 - to stash untracked files --> `git add -A && git stash`
+- `git stash [<message>]`
+- `git stash --keep-index`, stash only files not in staged area
+- `git stash --include-untracked`
+- `git stash list -stat`
 - `git stash pop` equals `git stash apply && git stash drop`
+- `git stash show stash@{0} --stat`, show stat of a stash
+- `git stash show stash@{0} --patch`, show file diff of a stash
+- `git stash clear`
 ` `git log`
 - `git log --oneline`
+- `git log --oneline -p`
 - `git log --decorate`
 - `git log --graph`
 - `git log -p`
@@ -50,7 +58,10 @@
 - `git diff` to diff last commit and cwd
 - `git diff --staged` to diff last commit and staging files
 - `git diff --cached` to diff staging area and last commit
-- `git diff HEAD` to diff all uncommited changes and last commit
+- `git diff HEAD` to diff all uncommited(both staged and unstaged) changes and last commit
+- `git diff HEAD~5..HEAD~4` to diff between commits
+- `git diff <branch A>..<branch B>` to diff between branches
+- `git diff --since=1.week.ago --until=1.minute.ago` to do time-based diff
 - `git diff --stat`
 - `git fetch && git diff origin/master` to compare local master and remote master
 - `git fetch && git diff origin/master file1.js`
@@ -79,7 +90,8 @@ go test -v
 - `cat ~/.gitconfig`
 - `git config --list`
 - `touch .gitignore`
-- `git rm --cached` to untrack files by looking at the latest .gitignore config
+- `git rm --cached <file>` to untrack files (the file remains in the local file system) by looking at the latest .gitignore config
+- `git rm <file>` to untrack files & remove it from the file system
 - `cd ~ && touch .gitignore_global && subl .gitignore_global`
 - `git config --global core.exclude ~/.gitignore_global`
 
@@ -89,3 +101,17 @@ To remove unstaged files,
 
 To force push to feature branch, never do this on master branch unless you know what you are doing,
 - `git push --force origin <feature branch>`
+
+To fix line break on different OS
+- `git config --global core.autocrlf input`, used on linux and os x, Changes CR/LF to LF on commit
+- `git config --global core.autocrlf true`, used on Windows, Changes LF to CR/LF on checkout and converts back to LF on commit
+
+To pick a message and merge to a branch
+- `git cherry-pick --edit <git commit hash>`
+- `git cherry-pick --no-commit <git commit hash 1> <git commit hash 2>`, pull in changes from those two commits and put in staged area
+- `git cherry-pick -x <git commit hash>`, include the source commit hash in the commit message of the new commit
+
+Working with submodules
+- `git submodule add <repo url>`
+- `cat .gitmodules`
+- `git submodule init && git submodule update`
